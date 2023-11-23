@@ -1,0 +1,70 @@
+1 - Enquanto Monte Carlo gera o resultado em tempo impressionante, o método dos retângulos
+    demorou uma quantidade excessiva de tempo (devido ao loop aninhado), o tempo médio dos
+    dois métodos foram:
+
+    1 - Retângulos:    
+    n = 1000    (10³) / Tempo decorrido: 0.001402 seg   / Integral: -2185.802411
+    n = 10000   (10⁴) / Tempo decorrido: 0.136254 seg   / Integral: -2184.751677
+    n = 100000  (10⁵) / Tempo decorrido: 13.536674 seg  / Integral: -2184.546132
+    n = 1000000 (10⁶) / Tempo decorrido: 1345.262066 seg/ Integral: -2184.535518
+    n = 10000000(10⁷) / Não foi possível calcular devido ao tempo exaustivo que 
+                        seria (superior a 1 dia), mas provavelmente exigiria muito
+                        mais retângulos ainda para obter um valor mais proximo ao
+                        método de monte carlo.
+
+    2 - Monte Carlo:    
+    n = 10000000(10⁷) / Tempo decorrido: 0,485618 seg   / Integral = -2184.499637
+
+2 - Comparação Monte Carlo 2, 4 e 8 dimensões:
+
+    Pontos = 10 ^ 7:
+
+    Método de Monte Carlo (2 dimensões).
+    a = (-4.000000), b = (4.000000), n = (10000000), variaveis = 2
+    Tempo decorrido: 0.487589 seg.
+    Integral Monte Carlo (2): -2184.499637
+
+    Método de Monte Carlo (4 dimensões).
+    a = (-4.000000), b = (4.000000), n = (10000000), variaveis = 4
+    Tempo decorrido: 0.858259 seg.
+    Integral Monte Carlo (4): -279597.327118
+
+    Método de Monte Carlo (8 dimensões).
+    a = (-4.000000), b = (4.000000), n = (10000000), variaveis = 8
+    Tempo decorrido: 1.632896 seg.
+    Integral Monte Carlo (8): -2290350649.155293
+
+    Pontos = 10 ^ 8:
+
+    Método de Monte Carlo (2 dimensões).
+    a = (-4.000000), b = (4.000000), n = (100000000), variaveis = 2
+    Tempo decorrido: 4.873936 seg.
+    Integral Monte Carlo (2): -2184.440767
+
+    Método de Monte Carlo (4 dimensões).
+    a = (-4.000000), b = (4.000000), n = (100000000), variaveis = 4
+    Tempo decorrido: 8.413107 seg.
+    Integral Monte Carlo (4): -279627.346177
+
+    Método de Monte Carlo (8 dimensões).
+    a = (-4.000000), b = (4.000000), n = (100000000), variaveis = 8
+    Tempo decorrido: 15.811201 seg.
+    Integral Monte Carlo (8): -2290670627.712909
+
+    O aumento de dimensões causa uma exigência maior do número de pontos, uma vez que o espaço
+    a ser explorado aumenta consideravelmente (Maldição da Dimensionalidade). Como podemos ver,
+    alterando de 10 ^ 7 pontos para 10 ^ 8 pontos quase não altera o valor da integral em 2 
+    dimensões, já a variação foi muito maior quando em 8 dimensões. 
+
+3 - Otimizações realizadas:
+    Para o método dos retângulos, o número de cálculos dentro do loop foi reduzido para
+    o mínimo que consegui, inclusive utilizei o valor do contador diretamente nos cálculos
+    para evitar a criação e atribuição de uma variável x = i e y = j.
+
+    Não consegui identificar outra possível otimização, acredito que unroll funcionaria, porém
+    limitaria a categoria de números que n pode assumir na linha de comando e aumentaria a
+    complexidade do algoritmo, o que poderia acabar prejudicando muito a legibilidade do código.
+
+4 - Para geração de números pseudo-aleatórios utilizei a macro predefinida no arquivo metodos.h 
+    que é minha adaptação do arquivo labMonteCarlo.c disponibilizado pelo professor no link:
+    https://gitlab.c3sl.ufpr.br/nicolui/ci1164-monte-carlo-2022

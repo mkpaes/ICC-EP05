@@ -1,0 +1,11 @@
+GRR20190158 - Murilo Paes Branco Alves
+
+1 - Para executar os arquivos usar os comandos:
+    make
+    ./retangulo a b n
+    ./montecarlo a b n
+
+2 - Os arquivos montecarlo.c e retangulo.c contém os respectivos main de cada Método
+
+3 - O arquivo resultados.txt contém o resultado da análise dos métodos, respondendo as
+    comparações sugeridas no enunciado do EP05
